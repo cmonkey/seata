@@ -41,7 +41,7 @@ import org.junit.jupiter.api.Test;
  */
 public class DefaultCoordinatorMetricsTest {
 
-    @Disabled("https://github.com/seata/seata/issues/1406")
+    //@Disabled("https://github.com/seata/seata/issues/1406")
     @Test
     public void test() throws IOException, TransactionException, InterruptedException {
         SessionHolder.init(null);
@@ -127,6 +127,7 @@ public class DefaultCoordinatorMetricsTest {
         Assertions.assertEquals(1,
             measurements.get("seata.transaction(meter=summary,role=tc,statistic=count,status=rollbacked)").getValue(),
             0);
+        System.out.println("value = " + measurements.get("seata.transaction(meter=summary,role=tc,statistic=total,status=rollbacked)").getValue());
         Assertions.assertEquals(1,
             measurements.get("seata.transaction(meter=summary,role=tc,statistic=total,status=rollbacked)").getValue(),
             0);
